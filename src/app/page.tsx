@@ -8,8 +8,8 @@ export default function Home() {
         <Image
           src="/logo.png" // 确保 logo.png 在 public 文件夹中
           alt="Passui Logo"
-          width={80} // 根据您的logo调整
-          height={80} // 根据您的logo调整
+          width={72}
+          height={72}
           className={styles.logo}
         />
         <h1 className={styles.title}>Passui</h1>
@@ -23,7 +23,7 @@ export default function Home() {
           <h2>Welcome to Passui: The Future of DApp Interaction</h2>
           <p>
             Passui showcases a powerful paradigm for modern DApp front-end development.
-            It's an innovative Sui Passkey AI Wallet, serving as a comprehensive blueprint
+            It&apos;s an innovative Sui Passkey AI Wallet, serving as a comprehensive blueprint
             for integrating seamless Passkey authentication, AI-driven user interaction,
             and core Sui blockchain operations. Discover how Passui makes decentralized
             applications more intuitive and secure.
@@ -61,7 +61,7 @@ export default function Home() {
             </li>
             <li>
               <strong>AI-Powered Assistant:</strong> Use natural language commands (e.g.,
-              "send 0.5 SUI to Bob", "check my balance") for blockchain operations,
+              &quot;send 0.5 SUI to Bob&quot;, &quot;check my balance&quot;) for blockchain operations,
               powered by the DeepSeek API.
             </li>
             <li>
@@ -79,9 +79,9 @@ export default function Home() {
           <h3 className={styles.sectionTitle}>How It Works</h3>
           <p>
             Passui connects to the Sui testnet using `SuiClient` and manages Passkey
-            credentials via `@mysten/sui/keypairs/passkey`. User's natural language
+            credentials via `@mysten/sui/keypairs/passkey`. User&apos;s natural language
             commands are processed by an AI, which translates them into structured DApp
-            instructions. Transactions are then built, signed using the device's Passkey,
+            instructions. Transactions are then built, signed using the device&apos;s Passkey,
             and executed on the Sui network, offering a secure and streamlined workflow.
           </p>
         </section>
