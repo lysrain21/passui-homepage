@@ -1,168 +1,169 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.container {
+  max-width: 860px;
+  /* 略微调整最大宽度 */
+  width: 100%;
+  padding: 3rem 2rem;
+  /* 增加垂直内边距 */
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: 4rem;
+  /* 增加区块间的间距 */
+  margin: 0 auto;
+  /* 添加此行以使 container 在 body 内居中，如果 body 没有 flex 属性 */
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+.header {
   display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
+  text-align: center;
+  gap: 0.75rem;
+  /* 调整logo和标题间距 */
+}
+
+.logo {
+  border-radius: 25%;
+  /* 更圆润的logo边角，类似iOS图标 */
+  box-shadow: 0 8px 24px rgba(var(--primary-blue-rgb), 0.2);
+  /* 更柔和的光晕效果 */
+  /* 尺寸可以在 Image 组件中调整，或在此处设置 max-width/height */
+}
+
+.title {
+  font-size: 2.8rem;
+  /* 调整标题大小 */
+  font-weight: 600;
+  color: rgb(var(--foreground-rgb));
+  letter-spacing: -0.04em;
+  /* 苹果风格的字间距 */
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  /* 调整副标题大小 */
+  color: rgb(var(--text-secondary-rgb));
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* 调整主要内容区块间距 */
+}
+
+.heroSection,
+.section {
+  background-color: rgba(var(--foreground-rgb), 0.02);
+  /* 非常微妙的背景色，增加层次感 */
+  padding: 2rem 2.5rem;
+  /* 调整区块内边距 */
+  border-radius: var(--border-radius-soft);
+  border: 1px solid rgba(var(--primary-blue-rgb), 0.15);
+  /* 更细微的边框 */
+  /* box-shadow: 0 4px 12px rgba(0,0,0, 0.1); 移除或使用更微妙的阴影 */
+}
+
+.heroSection h2,
+.sectionTitle {
+  font-size: 1.6rem;
+  /* 调整区块标题大小 */
+  font-weight: 500;
+  /* Medium weight */
+  color: rgb(var(--foreground-rgb));
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.heroSection p,
+.section p {
+  font-size: 1rem;
+  line-height: 1.75;
+  /* 增加行高以提高可读性 */
+  color: rgb(var(--text-secondary-rgb));
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: rgb(var(--primary-blue-rgb));
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  /* 调整按钮内边距 */
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
+  /* 增加按钮与上方内容的间距 */
+  box-shadow: 0 4px 10px rgba(var(--primary-blue-rgb), 0.25);
+}
+
+.ctaButton:hover {
+  background-color: rgb(calc(var(--primary-blue-rgb) * 1.1));
+  /* 悬停时颜色变亮 */
+  transform: translateY(-2px) scale(1.02);
+  /* 轻微上浮和放大效果 */
+  box-shadow: 0 6px 15px rgba(var(--primary-blue-rgb), 0.3);
+}
+
+.featureList,
+.techStackList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.featureList li,
+.techStackList li {
+  padding-left: 2rem;
+  /* 为自定义项目符号留出空间 */
+  position: relative;
+  margin-bottom: 1rem;
+  /* 增加列表项间距 */
+  color: rgb(var(--text-secondary-rgb));
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.featureList li::before,
+.techStackList li::before {
+  content: "●";
+  /* 使用更简洁的圆点，或者一个SVG水滴图标 */
+  position: absolute;
+  left: 0.5rem;
+  /* 调整项目符号位置 */
+  top: 0.1em;
+  /* 微调垂直对齐 */
+  color: rgb(var(--primary-blue-rgb));
+  font-size: 0.8em;
+  /* 调整项目符号大小 */
+  opacity: 0.8;
+  /* 使项目符号更柔和 */
+}
+
+.featureList strong {
+  color: rgb(var(--foreground-rgb));
   font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  text-align: center;
+  padding: 2.5rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(var(--primary-blue-rgb), 0.1);
+  /* 更细微的分割线 */
+  color: rgb(var(--text-secondary-rgb));
+  font-size: 0.9rem;
 }
 
 .footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: rgb(var(--primary-blue-rgb));
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.footer a:hover {
+  text-decoration: underline;
+  color: rgb(calc(var(--primary-blue-rgb) * 1.2));
+  /* 悬停时链接颜色变亮 */
 }
